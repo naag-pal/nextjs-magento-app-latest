@@ -1,0 +1,179 @@
+query getHomeProducts($id: String!) {
+  products(filter: { category_uid: { eq: $id } }, pageSize: 10, currentPage: 1) {
+    items {
+      url_key
+      uid
+      id
+      sku
+      name
+      price_range {
+        maximum_price {
+          regular_price {
+            value
+          }
+          final_price {
+            value
+          }
+          discount {
+            amount_off
+          }
+        }
+        minimum_price {
+          regular_price {
+            value
+          }
+          final_price {
+            value
+          }
+          discount {
+            amount_off
+          }
+        }
+      }
+      media_gallery {
+        url
+        position
+        disabled
+      }
+      image {
+        disabled
+        label
+        position
+        url
+      }
+      small_image {
+        disabled
+        label
+        position
+        url
+      }
+      description {
+        html
+      }
+      short_description {
+        html
+      }
+    }
+  }
+}
+query getProductsByCategory($id: String!) {
+  products(filter: { category_uid: { eq: $id } }) {
+    items {
+      url_key
+      id
+      sku
+      uid
+      name
+      price_range {
+        maximum_price {
+          regular_price {
+            value
+          }
+          final_price {
+            value
+          }
+          discount {
+            amount_off
+          }
+        }
+        minimum_price {
+          regular_price {
+            value
+          }
+          final_price {
+            value
+          }
+          discount {
+            amount_off
+          }
+        }
+      }
+      media_gallery {
+        url
+        position
+        disabled
+      }
+      image {
+        disabled
+        label
+        position
+        url
+      }
+      small_image {
+        disabled
+        label
+        position
+        url
+      }
+      description {
+        html
+      }
+      short_description {
+        html
+      }
+    }
+  }
+}
+query getProductDetailsByUrlKey($urlKey: String!) {
+  products(filter: { url_key: { eq: $urlKey } }) {
+    items {
+      id
+      sku
+      url_key
+      uid
+      name
+      categories {
+        uid
+        name
+        url_key
+      }
+      price_range {
+        maximum_price {
+          regular_price {
+            value
+          }
+          final_price {
+            value
+          }
+          discount {
+            amount_off
+          }
+        }
+        minimum_price {
+          regular_price {
+            value
+          }
+          final_price {
+            value
+          }
+          discount {
+            amount_off
+          }
+        }
+      }
+      media_gallery {
+        url
+        position
+        disabled
+      }
+      image {
+        disabled
+        label
+        position
+        url
+      }
+      small_image {
+        disabled
+        label
+        position
+        url
+      }
+      description {
+        html
+      }
+      short_description {
+        html
+      }
+    }
+  }
+}

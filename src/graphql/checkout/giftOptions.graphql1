@@ -1,0 +1,37 @@
+query GetGiftOptions($cartId: String!) {
+  cart(cart_id: $cartId) {
+    id
+    ...GiftOptionsFragment
+    __typename
+  }
+}
+
+fragment GiftOptionsFragment on Cart {
+  __typename
+  id
+  gift_message {
+    from
+    to
+    message
+    __typename
+  }
+  gift_receipt_included
+  printed_card_included
+  ...GiftOptionsSummaryFragment
+}
+
+fragment GiftOptionsSummaryFragment on Cart {
+  id
+  prices {
+    gift_options {
+      printed_card {
+        value
+        currency
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+  __typename
+}

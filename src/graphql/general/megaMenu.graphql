@@ -1,0 +1,55 @@
+query getMegaMenu {
+  categoryList {
+    uid
+    name
+    children {
+      uid
+      include_in_menu
+      name
+      position
+      url_path
+      children {
+        uid
+        include_in_menu
+        name
+        position
+        url_path
+        children {
+          uid
+          include_in_menu
+          name
+          position
+          url_path
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}
+
+query GetNavigationMenu($id: String!) {
+  categories(filters: { category_uid: { in: [$id] } }) {
+    items {
+      uid
+      name
+      children {
+        children_count
+        uid
+        include_in_menu
+        name
+        position
+        url_path
+        url_suffix
+        __typename
+      }
+      children_count
+      include_in_menu
+      url_path
+      __typename
+    }
+    __typename
+  }
+}

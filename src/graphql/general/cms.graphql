@@ -1,0 +1,25 @@
+query GetCmsPage($identifier: String!) {
+  cmsPage(identifier: $identifier) {
+    url_key
+    content
+    content_heading
+    title
+    page_layout
+    meta_title
+    meta_keywords
+    meta_description
+    __typename
+  }
+}
+
+query GetCmsBlocks($identifiers: [String]!) {
+  cmsBlocks(identifiers: $identifiers) {
+    items {
+      content
+      title
+      identifier
+      __typename
+    }
+    __typename
+  }
+}

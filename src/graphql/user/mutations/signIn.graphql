@@ -1,0 +1,144 @@
+mutation SignIn($email: String!, $password: String!) {
+  generateCustomerToken(email: $email, password: $password) {
+    token
+    __typename
+  }
+}
+
+mutation CreateCartAfterSignIn {
+  cartId: createEmptyCart
+}
+
+mutation MergeCartsAfterSignIn($sourceCartId: String!, $destinationCartId: String!) {
+  mergeCarts(source_cart_id: $sourceCartId, destination_cart_id: $destinationCartId) {
+    id
+    items {
+      uid
+      __typename
+    }
+    ...CheckoutPageFragment
+    __typename
+  }
+}
+
+fragment CheckoutPageFragment on Cart {
+  id
+  items {
+    uid
+    product {
+      uid
+      stock_status
+      __typename
+    }
+    __typename
+  }
+  total_quantity
+  available_payment_methods {
+    code
+    __typename
+  }
+  __typename
+}
+
+query GetCartDetailsAfterSignIn($cartId: String!) {
+  cart(cart_id: $cartId) {
+    id
+    items {
+      uid
+      product {
+        uid
+        name
+        sku
+        small_image {
+          url
+          label
+          __typename
+        }
+        price {
+          regularPrice {
+            amount {
+              value
+              __typename
+            }
+            __typename
+          }
+          __typename
+        }
+        __typename
+      }
+      quantity
+      ... on ConfigurableCartItem {
+        configurable_options {
+          configurable_product_option_uid
+          option_label
+          configurable_product_option_value_uid
+          value_label
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    prices {
+      grand_total {
+        value
+        currency
+        __typename
+      }
+      __typename
+    }
+    ...CartPageFragment
+    __typename
+  }
+}
+
+fragment DiscountSummaryFragment on CartPrices {
+  discounts {
+    amount {
+      currency
+      value
+      __typename
+    }
+    label
+    __typename
+  }
+  __typename
+}
+
+fragment GrandTotalFragment on CartPrices {
+  grand_total {
+    currency
+    value
+    __typename
+  }
+  __typename
+}
+
+fragment ShippingSummaryFragment on Cart {
+  id
+  shipping_addresses {
+    selected_shipping_method {
+      amount {
+        currency
+        value
+        __typename
+      }
+      __typename
+    }
+    street
+    __typename
+  }
+  __typename
+}
+
+fragment TaxSummaryFragment on CartPrices {
+  applied_taxes {
+    amount {
+      currency
+      value
+      __typename
+    }
+    __typename
+  }
+  __typename
+}

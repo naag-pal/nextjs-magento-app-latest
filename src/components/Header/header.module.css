@@ -1,0 +1,38 @@
+
+.cartIcon{
+    position: relative;
+    top: 5px;
+    left: 5px;
+}
+
+.headerIcon{
+    @apply bg-gray-200 border-none border-gray-500 rounded-lg cursor-pointer;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+.dropdownDisplay{
+    z-index: 1099;
+}
+.nvaContainer{
+ max-width: 1340px;
+}
+
+.cartNumberDisplay {
+    @apply bg-th-primary-dark;
+    z-index: 100;
+    position: absolute;
+    padding: 3px 6px;
+    border-radius: 50%;
+    display: inline-block;
+    min-width: 25px;
+    min-height: 25px;
+    width: auto;
+    height: auto;
+    font-size: 12px;
+    top: -5px;
+    right: -10px;
+    text-align: center;
+}
+   

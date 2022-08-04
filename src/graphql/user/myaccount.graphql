@@ -1,0 +1,166 @@
+query GetCustomerOrders($filter: CustomerOrdersFilterInput, $pageSize: Int!) {
+  customer {
+    orders(filter: $filter, pageSize: $pageSize) {
+      ...CustomerOrdersFragment
+      __typename
+    }
+    __typename
+  }
+}
+
+query IsEmailAvailable($email: String!) {
+  isEmailAvailable(email: $email) {
+    is_email_available
+    __typename
+  }
+}
+
+query checkUserIsAuthed($cartId: String!) {
+  cart(cart_id: $cartId) {
+    id
+    __typename
+  }
+}
+
+fragment CustomerOrdersFragment on CustomerOrders {
+  items {
+    billing_address {
+      city
+      country_code
+      firstname
+      lastname
+      postcode
+      region
+      street
+      telephone
+      __typename
+    }
+    id
+    invoices {
+      id
+      __typename
+    }
+    items {
+      id
+      product_name
+      product_sale_price {
+        currency
+        value
+        __typename
+      }
+      product_sku
+      product_url_key
+      selected_options {
+        label
+        value
+        __typename
+      }
+      quantity_ordered
+      __typename
+    }
+    number
+    order_date
+    payment_methods {
+      name
+      type
+      additional_data {
+        name
+        value
+        __typename
+      }
+      __typename
+    }
+    shipments {
+      id
+      tracking {
+        number
+        __typename
+      }
+      __typename
+    }
+    shipping_address {
+      city
+      country_code
+      firstname
+      lastname
+      postcode
+      region
+      street
+      telephone
+      __typename
+    }
+    shipping_method
+    status
+    total {
+      discounts {
+        amount {
+          currency
+          value
+          __typename
+        }
+        __typename
+      }
+      grand_total {
+        currency
+        value
+        __typename
+      }
+      subtotal {
+        currency
+        value
+        __typename
+      }
+      total_shipping {
+        currency
+        value
+        __typename
+      }
+      total_tax {
+        currency
+        value
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+  page_info {
+    current_page
+    total_pages
+    __typename
+  }
+  total_count
+  __typename
+}
+
+query GetCustomerInformation {
+  customer {
+    ...AccountInformationPageFragment
+    __typename
+  }
+}
+fragment AccountInformationPageFragment on Customer {
+  id
+  firstname
+  lastname
+  email
+  __typename
+}
+
+mutation SetCustomerInformation($customerInput: CustomerInput!) {
+  updateCustomer(input: $customerInput) {
+    customer {
+      ...AccountInformationPageFragment
+      __typename
+    }
+    __typename
+  }
+}
+
+fragment AccountInformationPageFragment on Customer {
+  id
+  firstname
+  lastname
+  email
+  __typename
+}

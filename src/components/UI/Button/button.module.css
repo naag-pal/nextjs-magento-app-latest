@@ -1,0 +1,132 @@
+
+.root {
+    @apply rounded-lg cursor-pointer inline-flex px-4 py-2
+    transition ease-in-out duration-150 shadow-sm text-center justify-center items-center;
+  }
+  
+  .root:hover {
+    @apply text-white border bg-th-primary-light;
+  }
+ 
+  .default{
+    @apply bg-th-primary-dark  border border-transparent text-white;
+  }
+  .default:hover{
+    @apply text-white border bg-th-primary-light;
+  }
+  
+  .filled{
+    @apply bg-th-primary-dark  border border-transparent text-white;
+  }
+  .filled:hover{
+    @apply text-white border bg-th-primary-light ;
+  }
+  
+  .text{
+    @apply bg-white  text-black border border-transparent;
+  }
+  .text:hover{
+    @apply text-black border bg-white;
+  }
+  .text:focus {
+    @apply outline;
+  }
+
+  .outlined{
+    @apply bg-white text-th-primary-dark font-semibold border-2 border-th-primary-dark;
+  }
+
+  .outlined:hover{
+    @apply bg-white font-semibold text-th-primary-dark border-2 border-th-primary-dark;
+  } 
+ 
+  .primary{
+    @apply bg-th-primary-dark  border border-transparent text-white;
+  }
+  .primary:hover{
+    @apply text-white border bg-blue-500 bg-th-primary-light;
+  }
+  
+  .primary:focus {
+    @apply outline-none;
+  }
+   
+  .primary[data-active] {
+    @apply bg-th-primary-medium ;
+  }
+  
+  .secondary{
+    @apply bg-th-secondary-dark  border border-transparent text-white;
+  }
+  .secondary:hover{
+    @apply text-white bg-th-secondary-medium border border-th-secondary-dark ;
+  }
+  
+  .secondary:focus {
+    @apply outline-none;
+  }
+   
+  .secondary[data-active] {
+    @apply bg-th-secondary-medium border-th-secondary-medium ;
+  }
+  
+  .error{
+    @apply bg-red-800  border border-transparent text-white outline-2;
+  }
+
+  .error:hover{
+    @apply text-white border border-red-300 ;
+  }
+
+  .error:focus {
+    @apply outline-none;
+  }
+   
+  .error[data-active] {
+    @apply bg-red-800 ;
+  }
+  
+  
+  .root:focus {
+    @apply outline-none;
+  }
+  
+  .root[data-active] {
+    @apply bg-blue-800;
+  }
+
+  .defaultSize{
+    @apply  px-4 py-2;
+    font-size: 0.9em;
+  }
+  
+  .smallSize{
+    @apply  px-3 py-1;
+    font-size: 0.7em;
+  }
+  
+  .loading {
+    @apply bg-blue-300 text-blue-400 border-blue-400 cursor-not-allowed;
+  }
+  
+  .slim {
+    @apply py-2 transform-none normal-case;
+  }
+
+  
+  .root[disabled],.root[disabled]:hover {
+    @apply  bg-blue-300 text-white border-blue-400 cursor-not-allowed;
+    filter: grayscale(0.1);
+    -webkit-transform: translateZ(0);
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  .disabled,
+  .disabled:hover {
+    @apply  bg-blue-300 text-blue-400 border-blue-400 cursor-not-allowed;
+    filter: grayscale(0.5);
+    -webkit-transform: translateZ(0);
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+  }

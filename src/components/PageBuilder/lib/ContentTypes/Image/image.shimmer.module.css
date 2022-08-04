@@ -1,0 +1,4 @@
+.shimmerRoot {
+       composes: root img from './image.module.css';
+    margin: 1rem 0;
+}

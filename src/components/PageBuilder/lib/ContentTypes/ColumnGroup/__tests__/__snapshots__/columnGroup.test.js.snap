@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a ColumnGroup component 1`] = `
+<div
+  className="root"
+  style={
+    Object {
+      "display": undefined,
+    }
+  }
+/>
+`;
+
+exports[`renders a ColumnGroup component with all props configured 1`] = `
+<div
+  className="root"
+  style={
+    Object {
+      "display": "flex",
+    }
+  }
+/>
+`;

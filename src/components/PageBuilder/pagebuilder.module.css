@@ -1,0 +1,22 @@
+
+  .pagebuilder-root{
+    margin: 100px;
+  }
+  /*
+  .pagebuilder-mobile-only{
+    display: none !important;
+  }
+  
+  .pagebuilder-slider{
+    display: none !important;
+  } 
+  
+  @media only screen and (max-width:768px){
+    .pagebuilder-mobile-hidden{
+        display:none !important
+    }
+    .pagebuilder-mobile-only{
+      display: block !important;
+    }
+  }
+  */

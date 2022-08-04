@@ -1,0 +1,27 @@
+.footer{
+    border-top: 1px solid rgb(203, 200, 200);
+    padding: 30px;
+    margin-top: 30px;
+}
+.footerColumn{
+    width: 100%;
+}
+.footerColumnTitle{
+    margin:10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.footerColumnContent{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.footerColumnContent a{
+    display: block;
+}
+.footerCopy{
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    margin: 30px;
+    color: gray;
+}

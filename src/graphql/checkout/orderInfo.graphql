@@ -1,0 +1,94 @@
+query getOrderDetails($cartId: String!) {
+  cart(cart_id: $cartId) {
+    id
+    ...OrderConfirmationPageFragment
+    __typename
+  }
+}
+
+fragment OrderConfirmationPageFragment on Cart {
+  id
+  email
+  total_quantity
+  shipping_addresses {
+    firstname
+    lastname
+    street
+    city
+    region {
+      label
+      __typename
+    }
+    postcode
+    country {
+      label
+      __typename
+    }
+    selected_shipping_method {
+      carrier_title
+      method_title
+      __typename
+    }
+    __typename
+  }
+  ...ItemsReviewFragment
+  __typename
+}
+
+fragment ItemsReviewFragment on Cart {
+  id
+  total_quantity
+  items {
+    uid
+    product {
+      uid
+      name
+      thumbnail {
+        url
+        __typename
+      }
+      ... on ConfigurableProduct {
+        variants {
+          attributes {
+            uid
+            __typename
+          }
+          product {
+            uid
+            thumbnail {
+              url
+              __typename
+            }
+            __typename
+          }
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    quantity
+    ... on ConfigurableCartItem {
+      configurable_options {
+        configurable_product_option_uid
+        option_label
+        configurable_product_option_value_uid
+        value_label
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+  __typename
+}
+
+mutation placeOrder($cartId: String!) {
+  placeOrder(input: { cart_id: $cartId }) {
+    order {
+      order_number
+      __typename
+    }
+    __typename
+  }
+}
